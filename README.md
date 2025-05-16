@@ -46,11 +46,11 @@
 
 ## 📸 Sample Screenshots
 
-- [x] Human detection frame from camera module
-  ![Detection Screenshot](screenshots/detection_screen.jpg)
-- [x] Alert display on the rescue team Android app
-  ![Alert Screenshot](screenshots/alert_screen.jpg)
+### Detection from Camera Module  
+<img src="screenshots/detection_screen.jpg" alt="Detection Screenshot" width="600"/>
 
+### Alert Display in Rescue Team App  
+<img src="screenshots/alert_screen.jpg" alt="Alert Screenshot" height="450" width="350"/>
 ## 🧩 Future Scope
 
 - Integration with drones and GPS-based tracking  
