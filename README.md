@@ -47,9 +47,9 @@
 ## 📸 Sample Screenshots
 
 - [x] Human detection frame from camera module
-  ![Detection Screenshot](screenshots/detection_screen.png)
+  ![Detection Screenshot](screenshots/detection_screen.jpg)
 - [x] Alert display on the rescue team Android app
-  ![Alert Screenshot](screenshots/alert_screen.png)
+  ![Alert Screenshot](screenshots/alert_screen.jpg)
 
 ## 🧩 Future Scope
 
