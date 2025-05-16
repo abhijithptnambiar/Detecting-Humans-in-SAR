@@ -1,0 +1,237 @@
+{#<!DOCTYPE html>#}
+{#<html lang="en">#}
+{#<head>#}
+{#	<title>OTP Verification</title>#}
+{#	<meta charset="UTF-8">#}
+{#	<meta name="viewport" content="width=device-width, initial-scale=1">#}
+{#	<link rel="icon" type="image/png" href="/static/login/images/icons/favicon.ico"/>#}
+{#	<link rel="stylesheet" type="text/css" href="/static/login/vendor/bootstrap/css/bootstrap.min.css">#}
+{#	<link rel="stylesheet" type="text/css" href="/static/login/fonts/font-awesome-4.7.0/css/font-awesome.min.css">#}
+{#	<link rel="stylesheet" type="text/css" href="/static/login/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">#}
+{#	<link rel="stylesheet" type="text/css" href="/static/login/vendor/animate/animate.css">#}
+{#	<link rel="stylesheet" type="text/css" href="/static/login/vendor/css-hamburgers/hamburgers.min.css">#}
+{#	<link rel="stylesheet" type="text/css" href="/static/login/vendor/animsition/css/animsition.min.css">#}
+{#	<link rel="stylesheet" type="text/css" href="/static/login/vendor/select2/select2.min.css">#}
+{#	<link rel="stylesheet" type="text/css" href="/static/login/vendor/daterangepicker/daterangepicker.css">#}
+{#	<link rel="stylesheet" type="text/css" href="/static/login/css/util.css">#}
+{#	<link rel="stylesheet" type="text/css" href="/static/login/css/main.css">#}
+{#    <script>#}
+{#      var countdown = 60; // Timer in seconds#}
+{#      function startTimer() {#}
+{#        var timerDisplay = document.getElementById("timer");#}
+{#        var interval = setInterval(function () {#}
+{#          if (countdown <= 0) {#}
+{#            clearInterval(interval);#}
+{#            window.location.href = "/forgot_password"; // Redirect to forgot password#}
+{#          } else {#}
+{#            timerDisplay.innerHTML = "Time remaining: " + countdown + "s";#}
+{#            countdown--;#}
+{#          }#}
+{#        }, 1000);#}
+{#      }a#}
+{#      window.onload = startTimer;#}
+{#    </script>#}
+{#</head>#}
+{#<body>#}
+{#	<div class="limiter">#}
+{#		<div class="container-login100" style="background-image: url('/static/login/images/bg-01.jpg');">#}
+{#			<div class="wrap-login100 p-t-30 p-b-50">#}
+{#				<span class="login100-form-title p-b-41">#}
+{#					OTP Verification#}
+{#				</span>#}
+{#				<form class="login100-form validate-form p-b-33 p-t-5" action="/otpbuttonclick" method="post">#}
+{#					<div class="wrap-input100 validate-input" data-validate="Enter OTP">#}
+{#						<input class="input100" type="text" name="otp" placeholder="Enter OTP">#}
+{#						<span class="focus-input100" data-placeholder="&#xe82a;"></span>#}
+{#					</div>#}
+{#					<div class="container-login100-form-btn m-t-32">#}
+{#						<button class="login100-form-btn">Verify</button>#}
+{#					</div>#}
+{#					<div align="center" id="timer" style="color:red; font-weight:bold; margin-top: 10px;"></div>#}
+{#				</form>#}
+{#			</div>#}
+{#		</div>#}
+{#	</div>#}
+{#	<script src="/static/login/vendor/jquery/jquery-3.2.1.min.js"></script>#}
+{#	<script src="/static/login/vendor/animsition/js/animsition.min.js"></script>#}
+{#	<script src="/static/login/vendor/bootstrap/js/popper.js"></script>#}
+{#	<script src="/static/login/vendor/bootstrap/js/bootstrap.min.js"></script>#}
+{#	<script src="/static/login/vendor/select2/select2.min.js"></script>#}
+{#	<script src="/static/login/vendor/daterangepicker/moment.min.js"></script>#}
+{#	<script src="/static/login/vendor/daterangepicker/daterangepicker.js"></script>#}
+{#	<script src="/static/login/vendor/countdowntime/countdowntime.js"></script>#}
+{#	<script src="/static/login/js/main.js"></script>#}
+{#</body>#}
+{#</html>#}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>OTP Verification</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="/static/login/images/icons/favicon.ico"/>
+    <link rel="stylesheet" type="text/css" href="/static/login/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/login/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/login/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/login/vendor/animate/animate.css">
+    <link rel="stylesheet" type="text/css" href="/static/login/vendor/css-hamburgers/hamburgers.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/login/vendor/animsition/css/animsition.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/login/vendor/select2/select2.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/login/vendor/daterangepicker/daterangepicker.css">
+    <link rel="stylesheet" type="text/css" href="/static/login/css/util.css">
+    <link rel="stylesheet" type="text/css" href="/static/login/css/main.css">
+
+    <style>
+        /* Custom Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #4facfe, #00f2fe);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+        }
+
+        .container-login100 {
+            background-image: none;
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            padding: 30px 50px;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .login100-form-title {
+            color: #333;
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .wrap-input100 {
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .input100 {
+            width: 100%;
+            padding: 15px;
+            font-size: 16px;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        .input100:focus {
+            border-color: #4facfe;
+        }
+
+        .focus-input100 {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            pointer-events: none;
+            border: 2px solid #4facfe;
+            border-radius: 8px;
+        }
+
+        .login100-form-btn {
+            background-color: #4facfe;
+            color: #fff;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 15px;
+            border-radius: 8px;
+            border: none;
+            width: 100%;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .login100-form-btn:hover {
+            background-color: #00f2fe;
+        }
+
+        #timer {
+            color: red;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .container-login100 {
+                padding: 20px 30px;
+            }
+
+            .login100-form-title {
+                font-size: 22px;
+            }
+
+            .input100 {
+                font-size: 14px;
+            }
+
+            .login100-form-btn {
+                font-size: 14px;
+            }
+        }
+    </style>
+
+    <script>
+        var countdown = 60; // Timer in seconds
+        function startTimer() {
+            var timerDisplay = document.getElementById("timer");
+            var interval = setInterval(function () {
+                if (countdown <= 0) {
+                    clearInterval(interval);
+                    window.location.href = "/forgot_password"; // Redirect to forgot password
+                } else {
+                    timerDisplay.innerHTML = "Time remaining: " + countdown + "s";
+                    countdown--;
+                }
+            }, 1000);
+        }
+        window.onload = startTimer;
+    </script>
+</head>
+<body>
+    <div class="limiter">
+        <div class="container-login100">
+            <div class="wrap-login100">
+                <span class="login100-form-title">
+                    OTP Verification
+                </span>
+                <form class="login100-form validate-form" action="/otpbuttonclick" method="post">
+                    <div class="wrap-input100 validate-input" data-validate="Enter OTP">
+                        <input class="input100" type="text" name="otp" placeholder="Enter OTP">
+                    </div>
+                    <div class="container-login100-form-btn">
+                        <button class="login100-form-btn">Verify</button>
+                    </div>
+                    <div id="timer"></div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/login/vendor/jquery/jquery-3.2.1.min.js"></script>
+    <script src="/static/login/vendor/animsition/js/animsition.min.js"></script>
+    <script src="/static/login/vendor/bootstrap/js/popper.js"></script>
+    <script src="/static/login/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/static/login/vendor/select2/select2.min.js"></script>
+    <script src="/static/login/vendor/daterangepicker/moment.min.js"></script>
+    <script src="/static/login/vendor/daterangepicker/daterangepicker.js"></script>
+    <script src="/static/login/vendor/countdowntime/countdowntime.js"></script>
+    <script src="/static/login/js/main.js"></script>
+</body>
+</html>

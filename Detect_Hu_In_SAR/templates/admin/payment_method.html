@@ -1,0 +1,33 @@
+{% extends "admin/index.html" %}
+{% block body %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Payment mode</title>
+</head>
+
+<body>
+<form action="/payment_submit/{{ id  }}/{{ amount }}" method="post">
+    <table width="200" border="1" class="table table-dark">
+<tr>
+<td><input id="ofline" name="radio" type="radio" value="Offline" /></td>
+<td><label class="form-control">Offline</label></td><br>
+    </tr>
+<tr><td><input name="radio" type="radio" value="Online" ></td>
+<td><label class="form-control">Online</label></td><br>
+    </tr>
+
+     <tr>
+    <th colspan="2" scope="row"><div align="center"><input type="submit" name="button" id="button" value="Add" /></div> </th>
+    </tr>
+
+
+
+
+</table>
+</form>
+
+</body>
+</html>
+{% endblock %}

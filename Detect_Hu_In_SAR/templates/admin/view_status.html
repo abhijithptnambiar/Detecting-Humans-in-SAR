@@ -1,0 +1,53 @@
+{% extends "admin/index.html" %}
+{% block body %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="">
+{% if data %}
+  <table border="1" class="table table-dark">
+    <tr>
+      <th scope="col">Sl.No</th>
+        <th>Date</th>
+        <th  scope="col">Work</th>
+        <th>Details</th>
+        <th>Address</th>
+      <th scope="col">Location</th>
+        <th  scope="col">Status</th>
+        <th  scope="col"></th>
+    </tr>
+      {% for i in data %}
+    <tr>
+      <td>&nbsp;{{ forloop.counter }}</td>
+      <td>{{ i.date }}&nbsp;</td>
+      <td>&nbsp;{{ i.work }}</td>
+      <td>{{ i.details }}&nbsp;</td>
+        <td>{{ i.place }}<br>{{ i.post }}<br>{{ i.pin }}</td>
+        <td><a href="https://www.google.com/maps/?q={{ i.latitude }},{{ i.longitude }}" class="btn btn-danger">Track</a> </td>
+        <td>status:{{ i.status }}<br>
+       amount: {{ i.amount }}</td>
+
+
+        {% if i.status == "Completed" %}
+        <td><a href="/payment_method/{{ i.id }}/{{ i.amount }}#services" class="btn btn-warning">Pay</a></td>
+    {% else %}
+  <td>------</td>
+    {% endif %}
+
+    </tr>
+      {% endfor %}
+  </table>
+{% else %}
+<br>
+        <br>
+        <center style="color: red">No Data Found...</center>
+{% endif %}
+</form>
+</body>
+</html>
+{% endblock %}

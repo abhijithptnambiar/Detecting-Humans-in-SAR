@@ -1,0 +1,200 @@
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />#}
+{#<title>Untitled Document</title>#}
+{#</head>#}
+{##}
+{#<body>#}
+{#<form action="/upload_gallery_post" method="post" enctype="multipart/form-data" name="form1" id="form1">#}
+{#  <table width="200" border="1">#}
+{#    <tr>#}
+{#      <th scope="row">Videos</th>#}
+{#      <td>#}
+{#      <input type="file" name="fileField" id="fileField" accept="/video/mp4" class="form-control" required /></td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#        <th colspan="2" scope="row"><div align="center"><input type="submit" name="button" id="button" value="Upload" class="btn btn-dark" /></div></th>#}
+{#    </tr>#}
+{#  </table>#}
+{#</form>#}
+{#</body>#}
+{#</html>#}
+{##}
+{##}
+{##}
+{##}
+{#<!DOCTYPE html>#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />#}
+{#<title>Upload Video</title>#}
+{#<style>#}
+{#    body {#}
+{#        font-family: Arial, sans-serif;#}
+{#        background-color: #f4f4f4;#}
+{#        display: flex;#}
+{#        justify-content: center;#}
+{#        align-items: center;#}
+{#        height: 100vh;#}
+{#        margin: 0;#}
+{#    }#}
+{#    .container {#}
+{#        background: white;#}
+{#        padding: 20px;#}
+{#        border-radius: 10px;#}
+{#        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);#}
+{#        width: 300px;#}
+{#        text-align: center;#}
+{#    }#}
+{#    table {#}
+{#        width: 100%;#}
+{#    }#}
+{#    th, td {#}
+{#        padding: 10px;#}
+{#        text-align: left;#}
+{#    }#}
+{#    input[type="file"] {#}
+{#        width: 100%;#}
+{#        padding: 5px;#}
+{#    }#}
+{#    input[type="submit"] {#}
+{#        background-color: #333;#}
+{#        color: white;#}
+{#        border: none;#}
+{#        padding: 10px 15px;#}
+{#        cursor: pointer;#}
+{#        width: 100%;#}
+{#        border-radius: 5px;#}
+{#    }#}
+{#    input[type="submit"]:hover {#}
+{#        background-color: #555;#}
+{#    }#}
+{#</style>#}
+{#</head>#}
+{#<body>#}
+{#<div class="container">#}
+{#    <h2>Upload Video</h2>#}
+{#    <form action="/upload_gallery_post" method="post" enctype="multipart/form-data" name="form1" id="form1">#}
+{#        <table>#}
+{#            <tr>#}
+{#                <th>Videos</th>#}
+{#                <td><input type="file" name="fileField" id="fileField" accept="video/mp4" required /></td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#                <td colspan="2" align="center"><input type="submit" name="button" id="button" value="Upload" /></td>#}
+{#            </tr>#}
+{#        </table>#}
+{#    </form>#}
+{#</div>#}
+{#</body>#}
+{#</html>#}
+{##}
+{##}
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Upload Video</title>
+    <style>
+        /* Background with gradient */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: #fff;
+        }
+
+        /* Upload container with glass effect */
+        .upload-container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+            text-align: center;
+            width: 400px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .upload-container h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        /* Stylish file input */
+        .file-input {
+            width: 100%;
+            padding: 12px;
+            border-radius: 25px;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: #fff;
+            font-size: 16px;
+            text-align: center;
+            cursor: pointer;
+            outline: none;
+        }
+
+        .file-input::file-selector-button {
+            background: #00ffcc;
+            border: none;
+            padding: 10px;
+            color: #000;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: 0.3s ease-in-out;
+            font-weight: bold;
+        }
+
+        .file-input::file-selector-button:hover {
+            background: #00b3a4;
+            transform: scale(1.05);
+        }
+
+        /* Upload button with neon glow */
+        .upload-btn {
+            width: 100%;
+            padding: 12px;
+            margin-top: 20px;
+            border: none;
+            border-radius: 25px;
+            background: linear-gradient(90deg, #ff00ff, #ff6600);
+            color: #fff;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s ease-in-out;
+            text-transform: uppercase;
+            box-shadow: 0 0 10px rgba(255, 0, 255, 0.6);
+        }
+
+        .upload-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(255, 0, 255, 0.9);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="upload-container">
+        <h2>Upload Your Video</h2>
+        <form action="/upload_gallery_post" method="post" enctype="multipart/form-data">
+            <input class="file-input" type="file" name="fileField" id="fileField" accept="video/mp4" required />
+            <button class="upload-btn">Upload</button>
+        </form>
+    </div>
+
+</body>
+</html>
